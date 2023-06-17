@@ -1,0 +1,171 @@
+﻿@page
+@model AccountingOfStudents.Pages.EducationalInformation.FullInformationPageModel
+
+<div class="container p-3" >
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary">Информация об обучающемся</h2>
+		</div>
+		<div class="col-6">
+
+		</div>
+	</div>
+
+	<br /><br />
+
+	<div class="container pb-3">
+		<div class="row pb-1">
+			ФИО:
+			<div class="col-md-auto">
+				@Model.Information.PersonalInformationOfStudent.LastName
+			</div>
+
+			<div class="col-md-auto">
+				@Model.Information.PersonalInformationOfStudent.FirstName
+			</div>
+
+			<div class="col-md-auto">
+				@Model.Information.PersonalInformationOfStudent.MiddleName
+			</div>
+		</div>
+		<div class="row pb-1">
+			Дата рождения:
+			<div class="col-md-auto">
+				@Model.Information.PersonalInformationOfStudent.DateOfBirth.ToShortDateString()
+			</div>
+		</div>
+		<div class="row pb-1">
+			Снилс:
+			<div class="col-md-auto">
+				@Model.Information.PersonalInformationOfStudent.Snils
+			</div>
+		</div>
+		<div class="row pb-1">
+			Законченное образование:
+			<div class="col-md-auto">
+				@Model.Information.PersonalInformationOfStudent.CompletedEducation
+			</div>
+		</div>
+		<div class="row">
+			Гражданство:
+			<div class="col-md-auto">
+				@Model.Information.PersonalInformationOfStudent.Citizenship
+			</div>
+		</div>
+	</div>
+
+	<br /><br />
+	<table class="table table-bordered table-striped" style="width:100%">
+			<thead>
+				<tr>
+					<th>
+						№
+					</th>
+
+					<th>
+						Вид документа
+					</th>
+
+					<th>
+						Серия
+					</th>
+
+					<th>
+						Номер
+					</th>
+
+					<th>
+						Дата выдачи
+					</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td width="1%">@Model.Information.KindOfDocument.Id</td>
+					<td width= "8%" > @Model.Information.KindOfDocument.Document</td>
+					<td width= "12%" > @Model.Information.KindOfDocument.Series</td>
+					<td width= "12%" > @Model.Information.KindOfDocument.Number</td>
+					<td width= "8%" > @Model.Information.KindOfDocument.DateOfIssue.ToShortDateString()</td>
+				</tr>
+			</tbody>
+	</table>
+
+	<br/><br/>
+
+	<table class="table table-bordered table-striped" style="width:100%">
+		<thead>
+			<tr>
+				<th>
+					№
+				</th>
+
+				<th>
+					Номер договора
+				</th>
+
+				<th>
+					Вид программы обучения
+				</th>
+
+				<th>
+					Название программы обучения
+				</th>
+
+				<th>
+					Начало обучения
+				</th>
+
+				<th>
+					Конец обучения
+				</th>
+
+				<th>
+					Номер протокола об окончании обучения
+				</th>
+
+				<th>
+					Присваемый разряд
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td width="3%">@Model.Information.Id </td>
+				<td width= "8%" > @Model.Information.ContractNumber </td>
+				<td width= "12%" > @Model.Information.EducationalProgram.KindOfProgram </td>
+				<td width= "12%" > @Model.Information.EducationalProgram.NameOfProgram </td>
+				<td width= "8%" > @Model.Information.StartOfEducation.ToShortDateString() </td>
+				<td width= "8%" > @Model.Information.EndOfEducation.ToShortDateString() </td>
+				<td width= "8%" > @Model.Information.ProtocolNumber</td>
+				<td width="8%"> @Model.Information.AssignedCategory.Category</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br/><br/>
+
+	<table class="table table-bordered table-striped" style="width:40%">
+		<thead>
+			<tr>
+				<th>
+					№
+				</th>
+
+				<th>
+					Направляющая организация
+				</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td width="1%">@Model.Information.SendingOrganization.Id</td>
+				<td width= "3%">@Model.Information.SendingOrganization.Organization</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<a asp-page="Index" class="btn btn-danger">Закрыть</a>
+</div>

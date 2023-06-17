@@ -1,0 +1,136 @@
+﻿@page
+@model AccountingOfStudents.Pages.EducationalInformation.CreateModel
+
+<form method="post" asp-antiforgery="true">
+	<div class="border p-3 mt-4">
+		
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.PersonalInformationOfStudent.LastName">Фамилия:</label>
+			<input type="text" asp-for="@Model.Information.PersonalInformationOfStudent.LastName" class="form-control" />
+			<span asp-validation-for="@Model.Information.PersonalInformationOfStudent.LastName" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.PersonalInformationOfStudent.FirstName">Имя:</label>
+			<input type="text" asp-for="@Model.Information.PersonalInformationOfStudent.FirstName" class="form-control" />
+			<span asp-validation-for="@Model.Information.PersonalInformationOfStudent.FirstName" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.PersonalInformationOfStudent.MiddleName">Отчество:</label>
+			<input type="text" asp-for="@Model.Information.PersonalInformationOfStudent.MiddleName" class="form-control" />
+			<span asp-validation-for="@Model.Information.PersonalInformationOfStudent.MiddleName" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.PersonalInformationOfStudent.DateOfBirth">Дата рождения:</label>
+			<input type="text" asp-for="@Model.Information.PersonalInformationOfStudent.DateOfBirth" class="form-control" />
+			<span asp-validation-for="@Model.Information.PersonalInformationOfStudent.DateOfBirth" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.PersonalInformationOfStudent.Snils">Снилс:</label>
+			<input type="text" asp-for="@Model.Information.PersonalInformationOfStudent.Snils" class="form-control" />
+			<span asp-validation-for="@Model.Information.PersonalInformationOfStudent.Snils" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.PersonalInformationOfStudent.CompletedEducation">Законченное образование:</label>
+			<input type="text" asp-for="@Model.Information.PersonalInformationOfStudent.CompletedEducation" class="form-control" />
+			<span asp-validation-for="@Model.Information.PersonalInformationOfStudent.CompletedEducation" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.PersonalInformationOfStudent.Citizenship">Гражданство:</label>
+			<input type="text" asp-for="@Model.Information.PersonalInformationOfStudent.Citizenship" class="form-control" />
+			<span asp-validation-for="@Model.Information.PersonalInformationOfStudent.Citizenship" class="text-danger"></span>
+		</div>
+
+
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.KindOfDocument.Document">Вид документа:</label>
+			<input type="text" asp-for="@Model.Information.KindOfDocument.Document" class="form-control" />
+			<span asp-validation-for="@Model.Information.KindOfDocument.Document" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.KindOfDocument.Series">Серия:</label>
+			<input type="text" asp-for="@Model.Information.KindOfDocument.Series" class="form-control" />
+			<span asp-validation-for="@Model.Information.KindOfDocument.Series" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.KindOfDocument.Number">Номер:</label>
+			<input type="text" asp-for="@Model.Information.KindOfDocument.Number" class="form-control" />
+			<span asp-validation-for="@Model.Information.KindOfDocument.Number" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.KindOfDocument.DateOfIssue">Дата выдачи:</label>
+			<input type="text" asp-for="@Model.Information.KindOfDocument.DateOfIssue" class="form-control" />
+			<span asp-validation-for="@Model.Information.KindOfDocument.DateOfIssue" class="text-danger"></span>
+		</div>
+
+
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.ContractNumber">Номер договора:</label>
+			<input type = "text" asp-for="@Model.Information.ContractNumber" class="form-control" />
+			<span asp-validation-for="@Model.Information.ContractNumber" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.EducationalProgram.KindOfProgram">Вид программы обучения:</label>
+			<input type="text" asp-for="@Model.Information.EducationalProgram.KindOfProgram" class="form-control" />
+			<span asp-validation-for="@Model.Information.EducationalProgram.KindOfProgram" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.EducationalProgram.NameOfProgram">Название программы обучения:</label>
+			<input type="text" asp-for="@Model.Information.EducationalProgram.NameOfProgram" class="form-control" />
+			<span asp-validation-for="@Model.Information.EducationalProgram.NameOfProgram" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.StartOfEducation">Начало обучения:</label>
+			<input type = "text" asp-for="@Model.Information.StartOfEducation" class="form-control" />
+			<span asp-validation-for="@Model.Information.StartOfEducation" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.EndOfEducation">Конец обучения:</label>
+			<input type = "text" asp-for="@Model.Information.EndOfEducation" class="form-control" />
+			<span asp-validation-for="@Model.Information.EndOfEducation" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="@Model.Information.ProtocolNumber">Номер протокола об окончании обучения:</label>
+			<input type = "text" asp-for="@Model.Information.ProtocolNumber" class="form-control" />
+			<span asp-validation-for="@Model.Information.ProtocolNumber" class="text-danger"></span>
+		</div>
+
+		<div class="form-group mb-3">
+			<label asp-for="Information.AssignedCategory" class="control-label">Получаемый разряд:</label>
+			<select asp-for="Information.AssignedCategoryId" class="form-control"
+					asp-items="@Model.Categories">
+				<option value = "" > --Выберите разряд --</option>
+			</select>
+			<span asp-validation-for="Information.AssignedCategoryId" class="text-danger" />
+		</div>
+
+		<div class="form-group mb-3">
+			<label asp-for="Information.SendingOrganization" class="control-label">Направляющая организация:</label>
+			<select asp-for="Information.SendingOrganizationId" class="form-control"
+					asp-items="@Model.Organizations">
+				<option value = "" > --Выберите направляющую организацию --</option>
+			</select>
+			<span asp-validation-for="Information.SendingOrganizationId" class="text-danger" />
+		</div> 
+
+		<button type="submit" value="Отправить" class="btn btn-primary" style="width:150px;">Добавить</button>
+		<a asp-page="Index" class="btn btn-danger">Закрыть</a>
+	</div>
+</form>
+

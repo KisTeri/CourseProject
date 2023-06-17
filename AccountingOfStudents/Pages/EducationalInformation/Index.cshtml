@@ -1,0 +1,121 @@
+﻿@page
+@model AccountingOfStudents.Pages.EducationalInformation.IndexModel
+
+<input hidden asp-for="@Model.SearchString" />
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary" style="padding-left: 0px;">Список обучающихся</h2>
+		</div>
+		<div class="col-6">
+		</div>
+	</div>
+
+	<br /><br />
+
+	<div class="container pb-3">
+		<div class="row" >
+			<div class="col-1" style="padding-left: 0px;">
+				<a asp-page="Create" class="btn btn-primary">Добавить</a>
+			</div>
+			<div class="col-6" style="margin-left: 22px;">
+				<form asp-page="Index" method="get">
+					<div class="form-actions no-color">
+						<p>
+							<input type="text" name="SearchString" placeholder="Поиск"  asp-for="SearchString"/>
+							<input type="submit" value="Найти" placeholder="Поиск" class="btn btn-primary" /> |
+							<a asp-page="Index" style="font-size: 90%;">Вывести весь список</a>
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>	
+	</div>
+	
+		<table class="table table-bordered table-striped" style="width:48%">
+		<thead>
+			<tr>
+				<th>
+					<a asp-page="Index" asp-route-sortOrder="@Model.IdSort" asp-route-currentFilter="@Model.CurrentFilter">
+						№
+					</a>
+				</th>
+
+				<th>
+					<a asp-page="Index" asp-route-sortOrder="@Model.NameSort" asp-route-currentFilter="@Model.CurrentFilter">
+					ФИО
+					</a>
+				</th>
+
+				<th></th>
+
+			</tr>
+		</thead>
+
+
+		<tbody>
+			@foreach(var obj in Model.PaginatedInformation)
+			{
+				<tr>
+					<td class="digitLink" width="1%">
+							@obj.PersonalInformationOfStudent.Id
+					</td>
+
+					<td class="digitLink">
+						<a asp-page="FullInformationPage" asp-route-id="@obj.Id">
+							@obj.PersonalInformationOfStudent.LastName @obj.PersonalInformationOfStudent.FirstName @obj.PersonalInformationOfStudent.MiddleName
+						</a>
+					</td>
+						
+					<td>
+						<div class="w-75 btn-group" role="group" style="padding-left: 40px;">
+						<a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary">
+								<i class="bi bi-pen"></i>
+							</a>
+						<a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger">
+								<i class="bi bi-trash3"></i>
+							</a>
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+@{
+	var prevDisabled = !Model.PaginatedInformation.HasPreviousPage ? "disabled" : "";
+	var nextDisabled = !Model.PaginatedInformation.HasNextPage ? "disabled" : "";
+}
+
+<div class="container" style="margin-left: 4px;">
+	<nav aria-label="Page navigation example">
+		<ul class="pagination">
+			<li class="page-item">
+				<a asp-page="Index"
+				   asp-route-sortOrder="@Model.CurrentSort"
+				   asp-route-pageIndex="@(Model.PaginatedInformation.PageIndex - 1)"
+				   asp-route-currentFilter="@Model.CurrentFilter" 
+				   class="page-link @prevDisabled" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+			<li class="page-item">
+				<a class="page-link" >
+					@Model.PaginatedInformation.PageIndex
+				</a>
+			</li>
+			<li class="page-item">
+				<a asp-page="Index"
+				   asp-route-sortOrder="@Model.CurrentSort"
+				   asp-route-pageIndex="@(Model.PaginatedInformation.PageIndex + 1)"
+				   asp-route-currentFilter="@Model.CurrentFilter" 
+				   class="page-link @nextDisabled" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+
